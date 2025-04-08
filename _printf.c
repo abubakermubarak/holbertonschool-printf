@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 #include <unistd.h>
 #include <starg.h>
 #include <string.h>
@@ -48,4 +48,4 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	return count;
-
+}
