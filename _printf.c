@@ -6,46 +6,38 @@ int _printf(const char *format, ...)
 {
 	/* init variables */
 	int i;
-	int len;
+	int counter;
 	char *s;
 	char c;
+	void (*ptr) (char *,va_list);
 	va_list ap, cp;
+	/* init array  of stuct f_dt for format types*/
+	f_dt format_list[]
+	{
+		{'c', print_char};
+		{'s', print_string};
+	}
 	/* make copy of va_list to loop throught */
 	va_copy(cp,ap);
 	/* start looping in optional args */
 	va_start(ap, format);
-	i = 0;
+	counter = 0;
 	/* itrate throught format  while not empty*/
-	while(format[i])
+	while(format[counter] && format!=NULL)
 	{
-		/* search for % */
-		if (format[i] == '%');
+		if (format[counter] == '%')
 		{
-			i++;
-			/* serach for specifiers */
-			switch format[i]
+			counter++;
+			i = 0;
+			while (i < 2)
 			{
-				case 'c':
+				if (format[counter] == format_list[i].identifier)
 				{
-					c = va_arg(ap, char);
-					write(1, c, 1);
-					break;
+					ptr = format_list[i].f;
+					ptr(ap);
 				}
-				case 's':
-				{
-					s = va_arg(ap, char*);
-					len = strlen(s);
-					write(1, s, len);
-					break;
-				}
-			
 			}
-		}
-		/* if % not found  print character */
-		c = va_arg(ap, char);
-		write(1, c, 1);
-		/*  increment i by one to go to next character */
-		i++;
+		counter++;
 	}
 	return count;
 }
