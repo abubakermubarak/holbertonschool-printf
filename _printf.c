@@ -9,14 +9,13 @@ int _printf(const char *format, ...)
 	int counter;
 	char *s;
 	char c;
-	void (*ptr) (char *,va_list);
+	void (*ptr) (va_list);
 	va_list ap, cp;
 	/* init array  of stuct f_dt for format types*/
-	f_dt format_list[]
-	{
-		{'c', print_char};
-		{'s', print_string};
-	}
+	f_dt list[]= {
+		{'s', print_string},
+		{'c', print_char}
+	};
 	/* make copy of va_list to loop throught */
 	va_copy(cp,ap);
 	/* start looping in optional args */
@@ -31,13 +30,15 @@ int _printf(const char *format, ...)
 			i = 0;
 			while (i < 2)
 			{
-				if (format[counter] == format_list[i].identifier)
+				if (format[counter] == list[i].identifier)
 				{
-					ptr = format_list[i].f;
+					ptr = list[i].f;
 					ptr(ap);
 				}
+			
 			}
+		}
 		counter++;
 	}
-	return counter;
+	return (counter);
 }
