@@ -1,6 +1,6 @@
 #include "main.h"
 #include <unistd.h>
-#include <starg.h>
+#include <stdarg.h>
 #include <string.h>
 int _printf(const char *format, ...)
 {
@@ -39,5 +39,5 @@ int _printf(const char *format, ...)
 			}
 		counter++;
 	}
-	return count;
+	return counter;
 }
