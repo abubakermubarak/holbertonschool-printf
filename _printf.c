@@ -7,8 +7,10 @@ int _printf(const char *format, ...)
 	/* init variables */
 	int i;
 	int counter;
+	/*
 	char *s;
 	char c;
+	*/
 	void (*ptr) (va_list);
 	va_list ap, cp;
 	/* init array  of stuct f_dt for format types*/

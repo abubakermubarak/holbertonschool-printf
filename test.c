@@ -6,6 +6,5 @@ int main(void)
     char c = 't';
     _printf("%s", s);
     _printf("%c", c);
-    _printf("test");
     return (0);
 }

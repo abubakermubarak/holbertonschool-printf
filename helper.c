@@ -3,7 +3,8 @@
 #include <string.h>
 void print_char(va_list ap)
 {
-    write(1, (char)va_arg(ap, int), 1);
+	int character = va_arg(ap, int);
+    write(1, &character, 1);
 }
 void print_string(va_list ap)
 {
