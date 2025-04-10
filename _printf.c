@@ -5,13 +5,12 @@
 int _printf(const char *format, ...)
 {
 	/* init variables */
-	int i;
 	int counter;
 	/*
 	char *s;
 	char c;
 	*/
-	void (*ptr) (va_list);
+	char buffer = (char *) malloc(BUFFER_SIZE * sizeof(char));
 	va_list ap, cp;
 	/* init array  of stuct f_dt for format types*/
 	f_dt list[]= {
@@ -29,6 +28,7 @@ int _printf(const char *format, ...)
 		if (format[counter] == '%')
 		{
 			counter++;
+			/*
 			i = 0;
 			while (i < 2)
 			{
@@ -38,6 +38,14 @@ int _printf(const char *format, ...)
 					ptr(ap);
 				}
 			
+			}
+			*/
+		}
+		switch format[counter]
+		{
+			case 'c':
+			{
+				print_char()
 			}
 		}
 		counter++;
