@@ -2,26 +2,28 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <string.h>
+#include <stdlib.h>
+
+int counter;
+char *buffer;
 int _printf(const char *format, ...)
 {
-	/* init variables */
-	int counter;
-	/*
-	char *s;
-	char c;
-	*/
-	char buffer = (char *) malloc(BUFFER_SIZE * sizeof(char));
-	va_list ap, cp;
-	/* init array  of stuct f_dt for format types*/
+	buffer = (char *) malloc(BUFFER_SIZE * sizeof(char));
+	setBuffer(buffer);
+
+	/* init array  of stuct f_dt for format types
 	f_dt list[]= {
 		{'s', print_string},
 		{'c', print_char}
 	};
+	*/
+	
+	counter = 0;
+	va_list ap, cp;
 	/* make copy of va_list to loop throught */
 	va_copy(cp,ap);
 	/* start looping in optional args */
 	va_start(ap, format);
-	counter = 0;
 	/* itrate throught format  while not empty*/
 	while(format[counter] && format!=NULL)
 	{
@@ -41,11 +43,11 @@ int _printf(const char *format, ...)
 			}
 			*/
 		}
-		switch format[counter]
+		switch (format[counter])
 		{
 			case 'c':
 			{
-				print_char()
+				print_char(format[counter],counter);
 			}
 		}
 		counter++;
