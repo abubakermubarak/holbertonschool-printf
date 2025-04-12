@@ -1,17 +1,16 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 #define BUFFER_SIZE 1024000
-
-char *buffer;
-
+extern  char *buffer;
 void setBuffer(char *b){
-    buffer=&b;
+    buffer=b;
 }
 
 int print_buffer(int index)
 {
-    write(1, &buffer, index);
+    write(1, buffer, index);
     index = 0;
     return (0);
 }
@@ -21,12 +20,7 @@ int add_to_buffer(char c, int index)
     {
         int x =print_buffer(index);
     }
-    /*
-    buffer[index++] = c;
-    */
-    char *ptr=&buffer[index];
-    *ptr  = c;
-    index++;
+    buffer[index] = c;
     return (0);
 }
 int print_char(char c, int index)
@@ -39,10 +33,12 @@ int print_char(char c, int index)
 }   
 int print_string(char *string, int index)
 {
-    while (*string)
+    while (string[index] != '\0')
     {
-        print_char(*string, index);
-        string ++;
+        printf("chatcter: %c\n", string[index]);
+        printf("index: %i\n", index);
+        add_to_buffer(string[index], index);
+        index++;
     }
     return (0);
 }
