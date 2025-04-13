@@ -9,6 +9,8 @@ char *buffer;
 char character;
 char *string;
 int n;
+int i;
+int len;
 int _printf(const char *format, ...)
 {
 	buffer = (char *) malloc(BUFFER_SIZE * sizeof(char));
@@ -25,29 +27,37 @@ int _printf(const char *format, ...)
 	{
 		if (format[counter] != '%')
 		{
+			add_to_buffer(format[counter], n);
+			n++;
+		}
+
+		
+		else
+		{
 			counter++;
+			printf("format: %c\n", format[counter]);
 			switch (format[counter])
 			{
+				
 				case 'c':
 				{
 					character = va_arg(ap, int);
-					print_char(character, n);
+					add_to_buffer(character, n);
+					n++;
 					break;
 				}
 				case 's':
 				{
-					string = va_arg(ap, char*);
-					print_string(string, n);
-					break;
+					string = va_arg(ap, char *);
+					len = strlen(string);
+					for (i = 0; i < len; i++)
+					{
+						add_to_buffer(string[i], n);
+						n++;
+					}
 				}
-				default:
-					add_to_buffer(format[counter],n);
 			}
-		}
-		else
-		{
-			add_to_buffer(format[n], n);
-			n++;	
+			
 		}
 		counter++;
 	}

@@ -16,6 +16,8 @@ int print_buffer(int index)
 }
 int add_to_buffer(char c, int index)
 {
+    //printf("i: %i\n", index);
+    //printf("char: %c\n", c);
     if (index == BUFFER_SIZE)
     {
         int x =print_buffer(index);
@@ -35,8 +37,6 @@ int print_string(char *string, int index)
 {
     while (string[index] != '\0')
     {
-        printf("chatcter: %c\n", string[index]);
-        printf("index: %i\n", index);
         add_to_buffer(string[index], index);
         index++;
     }
