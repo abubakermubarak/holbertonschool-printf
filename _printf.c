@@ -63,6 +63,12 @@ int _printf(const char *format, ...)
 					print_binary(number);
 					break;
 				}
+				case 'o':
+				{
+					number = va_arg(ap, int);
+					print_octal(number);
+					break;
+				}
 			}
 		}
 		counter++;
