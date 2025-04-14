@@ -5,7 +5,8 @@
 int _printf(const char *format, ...);
 void setBuffer(char *b);
 int print_buffer(int index);
-int add_to_buffer(char c, int index);
-int print_char(char c, int index);
-int print_string(char *string, int index);
+int add_to_buffer(char c);
+int print_char(char c);
+int print_string(char *string);
+int print_int(int long n);
 #endif
