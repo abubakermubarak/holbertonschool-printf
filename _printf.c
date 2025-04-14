@@ -51,6 +51,12 @@ int _printf(const char *format, ...)
 					print_int(number);
 					break;
 				}
+				case 'd':
+				{
+					number = va_arg(ap, int);
+					print_int(number);
+					break;
+				}
 			}
 		}
 		counter++;
