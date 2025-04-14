@@ -69,6 +69,18 @@ int _printf(const char *format, ...)
 					print_octal(number);
 					break;
 				}
+				case 'u':
+				{
+					number = va_arg(ap, int);
+					print_unsigned_int(number);
+					break;
+				}
+				case 'x':
+				{
+					number = va_arg(ap, int);
+					print_hex_small(number);
+					break;
+				}
 			}
 		}
 		counter++;

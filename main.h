@@ -10,5 +10,7 @@ int print_char(char c);
 int print_string(char *string);
 int print_int(int long n);
 int print_binary(unsigned int long n);
+int print_unsigned_int(unsigned int long n);
 int print_octal(unsigned int long n);
+int print_hex_small(unsigned int long n);
 #endif

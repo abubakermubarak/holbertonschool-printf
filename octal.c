@@ -4,6 +4,10 @@
 extern int n;
 int print_octal(unsigned int long n)
 {
+    if(n == 0)
+    {
+        add_to_buffer('0');
+    }
     char *octal = (char *) malloc(32 * sizeof(char));
     int i; 
     i = 0;
