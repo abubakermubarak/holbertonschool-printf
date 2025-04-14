@@ -57,6 +57,12 @@ int _printf(const char *format, ...)
 					print_int(number);
 					break;
 				}
+				case 'b':
+				{
+					number = va_arg(ap, int);
+					print_binary(number);
+					break;
+				}
 			}
 		}
 		counter++;
