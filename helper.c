@@ -27,6 +27,12 @@ int print_char(char c)
     {
         add_to_buffer(c);
     }
+    else
+    {
+        add_to_buffer('\\');
+        add_to_buffer('x');
+        print_hex(c, 'X');
+    }
     return (0);
 }   
 int print_string(char *string)

@@ -4,17 +4,16 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-int counter;
 char *buffer;
 char character;
 char *string;
 int number;
+int width;
 int n;
 int _printf(const char *format, ...)
 {
 	buffer = (char *) malloc(BUFFER_SIZE * sizeof(char));
 	setBuffer(buffer);
-	counter = 0;
 	n = 0;
 	va_list ap, cp;
 	/* make copy of va_list to loop throught */
@@ -22,16 +21,16 @@ int _printf(const char *format, ...)
 	/* start looping in optional args */
 	va_start(ap, format);
 	/* itrate throught format  while not empty*/
-	while(format[counter] && format!=NULL)
+	while(format!=NULL && *format)
 	{
-		if (format[counter] != '%')
+		if (*format != '%')
 		{
-			print_char(format[counter]);
+			print_char(*format);
 		}
 		else
 		{
-			counter++;
-			switch (format[counter])
+			format++;
+			switch (*format)
 			{		
 				case 'c':
 				{		
@@ -40,17 +39,13 @@ int _printf(const char *format, ...)
 					break;
 				}
 				case 's':
+				case 'r'
 				{
 					string = va_arg(ap, char *);
 					print_string(string);
 					break;
 				}
 				case 'i':
-				{
-					number = va_arg(ap, int);
-					print_int(number);
-					break;
-				}
 				case 'd':
 				{
 					number = va_arg(ap, int);
@@ -76,16 +71,18 @@ int _printf(const char *format, ...)
 					break;
 				}
 				case 'x':
+				case 'X':
+				case 'p':
 				{
 					number = va_arg(ap, int);
-					print_hex_small(number);
+					print_hex(number, *format);
 					break;
 				}
 			}
 		}
-		counter++;
+		format++;
 	}
 	printf("buffer: %s\n", buffer);
 	print_buffer(n);
-	return (counter);
+	return (n);
 }
