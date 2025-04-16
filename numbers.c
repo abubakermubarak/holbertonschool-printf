@@ -2,18 +2,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 extern int n;
-int print_int(int long n, int width)
+int print_int(int long n, int width, char sign)
 {
     char *number = (char *) malloc(32 * sizeof(char)); 
     int i = 0;
-    printf("Entered print_it\n");
+    char leading;
+    leading = ' ';
     int fill = width - number_length(n);
-    
+    if (sign == '+')
+    {
+        add_to_buffer('+');
+        fill--;
+    }
+    else if(sign == '-')
+    {
+        fill = -fill;
+    }
+    else if(sign == '0')
+    {
+        leading = sign
+    }
     if (fill >= 0) 
     {
         while(fill--)
         {
-            add_to_buffer('.'); 
+            add_to_buffer(leading); 
         }
     }
     

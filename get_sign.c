@@ -10,9 +10,9 @@ char get_sign(const char *format)
     {
         return '-';
     }
-    else
+    else if (*copy == '0')
     {
-        return 's';
+        return 'z';
     }
     return 'n';
 }
