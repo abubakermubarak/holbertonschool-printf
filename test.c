@@ -6,13 +6,14 @@ int main(void)
     char c = 'A';
     // _printf("%s", s);
     // _pri9ntf("%c", c);
-    _printf("Abo Baker is an %5c student", c);
+    //_printf("Abo Baker is an %c student", c);
     //printf("\n");
     //_printf("my name is %s my grade is:%c", "Abubaker", 'A');
     printf("\n");
     //_printf("%c%s", 'a',"bubaker");
     //printf("\n");
-    _printf("my number:%-5i", 1234);
+    //_printf("%05d",0);
+    _printf("%05d",-7);
     //printf("\n");
     //_printf("the number %b is  binary ", 65);
     //printf("\n");

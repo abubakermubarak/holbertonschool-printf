@@ -18,10 +18,13 @@ int print_int(int long n, int width, char sign)
     {
         fill = -fill;
     }
-    else if(sign == '0')
+    else if(sign == 'z')
     {
-        leading = sign
+        leading = '0';
+        fill--;
     }
+    else
+    {}
     if (fill >= 0) 
     {
         while(fill--)

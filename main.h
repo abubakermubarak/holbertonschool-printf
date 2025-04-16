@@ -8,7 +8,7 @@ int print_buffer(int index);
 int add_to_buffer(char c);
 int print_char(char c);
 int print_string(char *string, char flag);
-int print_int(int long n, int width);
+int print_int(int long n, int width, char sign);
 int print_binary(unsigned int long n);
 int print_unsigned_int(unsigned int long n);
 int print_octal(unsigned int long n);
