@@ -15,4 +15,5 @@ int print_octal(unsigned int long n);
 int print_hex(unsigned int long n, char flag);
 int number_length(int number);
 int get_width( const char *format);
+char get_sign(const char *format);
 #endif
