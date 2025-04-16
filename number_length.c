@@ -1,3 +1,4 @@
+#include "main.h"
 int number_length(int number)
 {
     int i;
