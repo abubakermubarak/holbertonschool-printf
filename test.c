@@ -6,19 +6,19 @@ int main(void)
     char c = 'A';
     // _printf("%s", s);
     // _pri9ntf("%c", c);
-    //_printf("Abo Baker is an %c student", c);
+    _printf("Abo Baker is an %5c student", c);
     //printf("\n");
     //_printf("my name is %s my grade is:%c", "Abubaker", 'A');
     printf("\n");
     //_printf("%c%s", 'a',"bubaker");
     //printf("\n");
-    _printf("my number: %i", -12345);
+    _printf("my number:%-5i", 1234);
     //printf("\n");
-    _printf("the number %b is  binary ", 65);
+    //_printf("the number %b is  binary ", 65);
+    //printf("\n");
+    //_printf("the number %i in octal is : %o", 31, 31);
     printf("\n");
-    _printf("the number %i in octal is : %o", 31, 31);
-    printf("\n");
-    _printf("unsigned_int: %u", 100);
-    printf("\n");
+    //_printf("unsigned_int: %u", 100);
+    //printf("\n");
     return (0);
 }

@@ -9,6 +9,7 @@ char character;
 char *string;
 int number;
 int width;
+int precision;
 int n;
 int _printf(const char *format, ...)
 {
@@ -30,8 +31,11 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
+			width = get_width(format);
+			printf("width:%i\nprec:%i\n", width, precision);
+			format++;
 			switch (*format)
-			{		
+			{	
 				case 'c':
 				{		
 					character = va_arg(ap, int);
@@ -39,17 +43,17 @@ int _printf(const char *format, ...)
 					break;
 				}
 				case 's':
-				case 'r'
+				case 'r':
 				{
 					string = va_arg(ap, char *);
-					print_string(string);
+					print_string(string, *format);
 					break;
 				}
 				case 'i':
 				case 'd':
 				{
 					number = va_arg(ap, int);
-					print_int(number);
+					print_int(number, width);
 					break;
 				}
 				case 'b':

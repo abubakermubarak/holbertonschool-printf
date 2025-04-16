@@ -31,16 +31,8 @@ int print_char(char c)
     {
         add_to_buffer('\\');
         add_to_buffer('x');
-        print_hex(c, 'X');
+        //print_hex(c, 'X');
     }
     return (0);
 }   
-int print_string(char *string)
-{
-    while (*string)
-    {
-        add_to_buffer(*string);
-        string++;
-    }
-    return (0);
-}
+

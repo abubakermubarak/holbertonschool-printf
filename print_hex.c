@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-
+#include <stdbool.h>
 extern int n;
 int print_hex(unsigned int long n, char flag)
 {
