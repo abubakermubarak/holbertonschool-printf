@@ -8,6 +8,11 @@ char get_sign(const char *format)
     }
     else if (*copy == '-')
     {
-        
+        return '-';
     }
+    else
+    {
+        return 's';
+    }
+    return 'n';
 }
